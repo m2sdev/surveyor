@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfde672e-7223-4f7e-a1ca-e5d635f89e6a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partials/_question.html.haml" afterPath="$PROJECT_DIR$/app/views/partials/_question.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partials/_question_group.html.haml" afterPath="$PROJECT_DIR$/app/views/partials/_question_group.html.haml" />
     </list>
     <ignored path="surveyor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_answer.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_answer.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/partials/_answer.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="20" selection-start="741" selection-end="741" vertical-scroll-proportion="0.34042552">
+            <state line="7" column="104" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -38,16 +40,16 @@
       <file leaf-file-name="_question.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/partials/_question.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="22" selection-start="772" selection-end="772" vertical-scroll-proportion="0.0">
+            <state line="10" column="40" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_question_group.html.haml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_question_group.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/partials/_question_group.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="14" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+            <state line="37" column="22" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.77304965">
               <folding />
             </state>
           </provider>
@@ -65,7 +67,7 @@
       <file leaf-file-name="surveyor_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="46" selection-start="2656" selection-end="2656" vertical-scroll-proportion="-10.615385">
+            <state line="50" column="45" selection-start="2617" selection-end="2617" vertical-scroll-proportion="-9.692307">
               <folding />
             </state>
           </provider>
@@ -85,7 +87,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/app/views/partials/_answer.html.haml" />
         <option value="$PROJECT_DIR$/app/views/partials/_question.html.haml" />
+        <option value="$PROJECT_DIR$/app/helpers/surveyor_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/partials/_question_group.html.haml" />
       </list>
     </option>
   </component>
@@ -281,30 +286,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/partials/_answer.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="46" selection-start="2656" selection-end="2656" vertical-scroll-proportion="-10.615385">
+        <state line="7" column="104" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/_question_group.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="14" selection-start="1720" selection-end="1720" vertical-scroll-proportion="0.0">
+        <state line="50" column="45" selection-start="2617" selection-end="2617" vertical-scroll-proportion="-9.692307">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/_question.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="22" selection-start="772" selection-end="772" vertical-scroll-proportion="0.0">
+        <state line="10" column="40" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/_answer.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/views/partials/_question_group.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="741" selection-end="741" vertical-scroll-proportion="0.34042552">
+        <state line="37" column="22" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.77304965">
           <folding />
         </state>
       </provider>
