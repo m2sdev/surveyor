@@ -30,8 +30,7 @@ module Surveyor
             (hash_of_hashes || {}).each_pair do |k, hash|
               hash = Response.applicable_attributes(hash)
               if has_blank_value?(hash)
-                result.merge!({k => hash.merge("_destroy" => "true")}) if hash.has_key?("id")
-		result.delete_if{|key,value| key == "answer_id" && value == ""}
+                result.merge!({k => hash.delete_if{|key,value| key == "answer_id" && (value == "" || value == [""])}.merge("_destroy" => "true")}) if hash.has_key?("id")
               else
                 result.merge!({k => hash})
               end
