@@ -69,6 +69,7 @@ end
 
 # Surveyor models with extra parsing methods
 class Survey < ActiveRecord::Base
+  include Surveyor::Models::SurveyMethods
   # block
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -89,6 +90,7 @@ class Survey < ActiveRecord::Base
   end
 end
 class SurveySection < ActiveRecord::Base
+  include Surveyor::Models::SurveySectionMethods
   # block
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -97,13 +99,15 @@ class SurveySection < ActiveRecord::Base
     
     # build and set context
     title = args[0]
-    context[:survey_section] = context[:survey].sections.build({ :title => title }.merge(args[1] || {}))
+    survey = context[:survey]
+    context[:survey_section] = survey.sections.build({ :title => title }.merge(args[1] || {}))
   end
   def clear(context)
     context.delete_if{|k,v| !%w(survey question_references answer_references).map(&:to_sym).include?(k)}
   end
 end
 class QuestionGroup < ActiveRecord::Base
+  include Surveyor::Models::QuestionGroupMethods
   # block
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -120,6 +124,7 @@ class QuestionGroup < ActiveRecord::Base
   end
 end
 class Question < ActiveRecord::Base
+  include Surveyor::Models::QuestionMethods
   # nonblock
   
   # attributes
@@ -161,6 +166,7 @@ class Question < ActiveRecord::Base
   end
 end
 class Dependency < ActiveRecord::Base
+  include Surveyor::Models::DependencyMethods
   # nonblock
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -176,6 +182,7 @@ class Dependency < ActiveRecord::Base
   end
 end
 class DependencyCondition < ActiveRecord::Base
+  include Surveyor::Models::DependencyConditionMethods
   # nonblock
   
   attr_accessor :question_reference, :answer_reference, :context_reference
@@ -212,6 +219,7 @@ class DependencyCondition < ActiveRecord::Base
 end
 
 class Answer < ActiveRecord::Base
+  include Surveyor::Models::AnswerMethods
   # nonblock
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -263,6 +271,7 @@ class Answer < ActiveRecord::Base
   end
 end
 class Validation < ActiveRecord::Base
+  include Surveyor::Models::ValidationMethods
   # nonblock
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
@@ -274,6 +283,7 @@ class Validation < ActiveRecord::Base
   end
 end
 class ValidationCondition < ActiveRecord::Base
+  include Surveyor::Models::ValidationConditionMethods
   # nonblock
   
   def self.parse_and_build(context, args, original_method, reference_identifier)
