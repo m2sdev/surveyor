@@ -24,7 +24,7 @@ module Surveyor
       method_name, reference_identifier = missing_method.to_s.split("_", 2)
       type = full(method_name)
       
-      print reference_identifier.blank? ? "#{type} " : "#{type}_#{reference_identifier} "
+      #print reference_identifier.blank? ? "#{type} " : "#{type}_#{reference_identifier} "
       
       # check for blocks
       raise "Error: A #{type.humanize} cannot be empty" if block_models.include?(type) && !block_given?
