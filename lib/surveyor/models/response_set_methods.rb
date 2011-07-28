@@ -142,6 +142,12 @@ module Surveyor
 
       def all_dependencies(question_ids = nil)
         arr = dependencies(question_ids).partition{|d| d.is_met?(self) }
+        # TODO Hack (requiring code review) to append to arr[1] (aka false members) those nested questions that need to
+        # be hidden
+        nested_dependencies = dependencies(arr[1].map(&:question_id))
+        nested_dependencies.each do |nd|
+          arr[1] << nd
+        end
         {:show => arr[0].map{|d| d.question_group_id.nil? ? "q_#{d.question_id}" : "g_#{d.question_group_id}"}, :hide => arr[1].map{|d| d.question_group_id.nil? ? "q_#{d.question_id}" : "g_#{d.question_group_id}"}}
       end
 
@@ -155,9 +161,10 @@ module Surveyor
       def dependencies(question_ids = nil)
         deps = Dependency.all(:include => :dependency_conditions, :conditions => {:dependency_conditions => {:question_id => question_ids || responses.map(&:question_id)}})
         # this is a work around for a bug in active_record in rails 2.3 which incorrectly eager-loads associatins when a condition clause includes an association limiter
-        deps.each{|d| d.dependency_conditions.reload} 
+        deps.each{|d| d.dependency_conditions.reload}
         deps
       end
+
     end
   end
 end
