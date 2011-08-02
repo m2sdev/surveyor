@@ -181,6 +181,7 @@ class Dependency < ActiveRecord::Base
     end
   end
 end
+
 class DependencyCondition < ActiveRecord::Base
   include Surveyor::Models::DependencyConditionMethods
   # nonblock

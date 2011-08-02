@@ -10,6 +10,7 @@ module Surveyor
         unless @@validations_already_included
           # Validations
           base.send :validates_presence_of, :response_set_id, :question_id, :answer_id
+          base.send :validates_uniqueness_of, :answer_id, :scope => [:response_set_id, :question_id]
           
           @@validations_already_included = true
         end

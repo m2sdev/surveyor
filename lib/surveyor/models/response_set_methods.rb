@@ -8,7 +8,7 @@ module Surveyor
         base.send :belongs_to, :survey
         base.send :belongs_to, :user
         base.send :has_many, :responses, :dependent => :destroy
-        base.send :accepts_nested_attributes_for, :responses, :allow_destroy => true
+        base.send :accepts_nested_attributes_for, :responses, :allow_destroy => true#, :reject_if =>proc { |attr| attr['value'].blank? || attr['value'].empty? }
         
         @@validations_already_included ||= nil
         unless @@validations_already_included
