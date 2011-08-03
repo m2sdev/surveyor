@@ -4,13 +4,13 @@ module ResultsHelper
 	  	if sets.size == 0
   			return "-"
   		elsif sets.size == 1
-  			return (sets.first.string_value || sets.first.text_value || show_answer(sets.first))
+  			return raw(sets.first.string_value || sets.first.text_value || show_answer(sets.first))
   		else
   		  txt = ""
         sets.each do |set|
           txt << show_answer(set) + "<br/>"
         end
-        return txt
+        return raw(txt)
 		  end
   end
   

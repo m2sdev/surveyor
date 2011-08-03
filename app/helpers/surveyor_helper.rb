@@ -83,5 +83,5 @@ module SurveyorHelper
   def response_idx(increment = true)
     @rc ||= 0
     (increment ? @rc += 1 : @rc).to_s
-  end  
+  end
 end

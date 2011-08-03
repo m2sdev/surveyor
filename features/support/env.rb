@@ -6,8 +6,8 @@
 
 require 'rails'
 require 'cucumber/rails3/application'
-ENV["RAILS_ENV"] ||= "test"
-ENV["RAILS_ROOT"] ||= File.expand_path(File.dirname(__FILE__) + '/../..')
+Rails.env ||= "test"
+Rails.root ||= File.expand_path(File.dirname(__FILE__) + '/../..')
 require File.expand_path(File.dirname(__FILE__) + '/../../testbed/config/environment')
 require 'cucumber/rails3/action_controller'
 
