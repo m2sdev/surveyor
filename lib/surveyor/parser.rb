@@ -36,10 +36,13 @@ module Surveyor
       # evaluate and clear context for block models
       if block_models.include?(type)
         self.instance_eval(&block) 
-        if type == 'survey'
-          puts
-          print context[type.to_sym].save ? "saved. " : " not saved! #{context[type.to_sym].errors.each_full{|x| x }.join(", ")} "
-        end
+        #if type == 'survey'
+        #  puts
+        #  print context[type.to_sym].save ? "saved. " : " not saved! #{context[type.to_sym].errors.each_full{|x| x }.join(", ")} "
+        #end
+        # Modified
+        context[type.to_sym].save
+
         context[type.to_sym].clear(context) unless type == 'survey'
       end
     end
