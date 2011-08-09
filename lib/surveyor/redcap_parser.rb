@@ -35,7 +35,10 @@ module Surveyor
             Dependency.build_and_set(context, r)
           end
         end
-        print context[:survey].save ? "saved. " : " not saved! #{context[:survey].errors.each_full{|x| x }.join(", ")} "
+        #print context[:survey].save ? "saved. " : " not saved! #{context[:survey].errors.each_full{|x| x }.join(", ")} "
+        unless context[:survey].save!
+          context[:survey].errors.each_full{|x| x }.join(", ")
+        end
         # print context[:survey].sections.map(&:questions).flatten.map(&:answers).flatten.map{|x| x.errors.each_full{|y| y}.join}.join
       rescue csvlib::MalformedCSVError
         puts = "Oops. Not a valid CSV file."

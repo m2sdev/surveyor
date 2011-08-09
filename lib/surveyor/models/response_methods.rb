@@ -39,8 +39,13 @@ module Surveyor
       end
 
       def to_s # used in dependency_explanation_helper
-        if self.answer.response_class == "answer" and self.answer_id
-          return self.answer.text
+        if self.answer_id.present?
+          if self.answer.response_class == "answer"
+            #return self.answer.text
+            return "*"
+          else
+            return "#{(self.string_value || self.text_value || self.integer_value || self.float_value || nil).to_s}"
+          end
         else
           return "#{(self.string_value || self.text_value || self.integer_value || self.float_value || nil).to_s}"
         end

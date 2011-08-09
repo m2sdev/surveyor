@@ -4,7 +4,7 @@ module SurveyorHelper
     surveyor_stylsheets + surveyor_javascripts    
   end
   def surveyor_stylsheets
-    stylesheet_link_tag 'surveyor/reset', 'surveyor/dateinput', 'surveyor', 'custom'
+    stylesheet_link_tag 'surveyor/reset', 'surveyor/dateinput', 'surveyor'
   end
   def surveyor_javascripts
     javascript_include_tag 'surveyor/jquery.tools.min', 'surveyor/jquery.surveyor'
@@ -38,9 +38,13 @@ module SurveyorHelper
   # Questions
   def q_text(obj)
     @n ||= 0
+    mandatory = ''
+    if obj.class.name == 'Question'
+      mandatory = obj.is_mandatory ? '*' : ''
+    end
     return image_tag(obj.text) if obj.is_a?(Question) and obj.display_type == "image"
     return obj.text if obj.is_a?(Question) and (obj.dependent? or obj.display_type == "label" or obj.part_of_group?)
-    "#{@n += 1}) #{obj.text}"
+    "#{@n += 1}) #{obj.text} #{mandatory}"
   end
   # def split_text(text = "") # Split text into with "|" delimiter - parts to go before/after input element
   #   {:prefix => text.split("|")[0].blank? ? "&nbsp;" : text.split("|")[0], :postfix => text.split("|")[1] || "&nbsp;"}
