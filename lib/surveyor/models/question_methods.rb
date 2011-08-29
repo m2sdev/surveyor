@@ -36,6 +36,7 @@ module Surveyor
         self.is_mandatory ||= true
         self.display_type ||= "default"
         self.pick ||= "none"
+        self.intercept ||= "none"
         self.display_order ||= self.survey_section ? self.survey_section.questions.count : 0
         self.data_export_identifier ||= Surveyor::Common.normalize(text)
         self.short_text ||= text
@@ -47,6 +48,10 @@ module Surveyor
       end
       def display_type=(val)
         write_attribute(:display_type, val.nil? ? nil : val.to_s)
+      end
+
+      def intercept=(val)
+        write_attribute(:intercept, val.nil? ? nil : val.to_s)
       end
 
       def mandatory?

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfde672e-7223-4f7e-a1ca-e5d635f89e6a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/surveyor.iml" afterPath="$PROJECT_DIR$/.idea/surveyor.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/results_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/results_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_dependency_conditions.rb" afterPath="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_dependency_conditions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_questions.rb" afterPath="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_questions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/surveyor/models/question_methods.rb" afterPath="$PROJECT_DIR$/lib/surveyor/models/question_methods.rb" />
     </list>
     <ignored path="surveyor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,64 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/results/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/results/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="16" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results_helper.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/results_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="94" selection-start="319" selection-end="319" vertical-scroll-proportion="-2.6666667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validation_methods.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/surveyor/models/validation_methods.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parser.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/surveyor/parser.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="62" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="surveyor_helper.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="surveyor_helper.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="4" selection-start="2926" selection-end="2926" vertical-scroll-proportion="0.0">
+            <state line="29" column="70" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.9255319">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="response_set_methods.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/surveyor/models/response_set_methods.rb">
+      <file leaf-file-name="survey_form_builder.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/survey_form_builder.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="41" selection-start="5951" selection-end="5951" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="4.740741">
               <folding />
             </state>
           </provider>
@@ -103,7 +60,52 @@
       <file leaf-file-name="question_methods.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/surveyor/models/question_methods.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="10" selection-start="2291" selection-end="2291" vertical-scroll-proportion="0.0">
+            <state line="53" column="61" selection-start="1859" selection-end="1859" vertical-scroll-proportion="-12.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="59" selection-start="954" selection-end="954" vertical-scroll-proportion="-3.5555556">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="surveyor_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/surveyor_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="surveyor_controller_methods.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="89" selection-start="1807" selection-end="2224" vertical-scroll-proportion="-4.888889">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="surveyor.gemspec" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/surveyor.gemspec">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="54" selection-start="3351" selection-end="3351" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parser.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/surveyor/parser.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="132" column="52" selection-start="4519" selection-end="4519" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -132,8 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/partials/_answer.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/partials/_question.html.haml" />
         <option value="$PROJECT_DIR$/app/views/partials/_question_group.html.haml" />
         <option value="$PROJECT_DIR$/lib/surveyor/models/dependency_methods.rb" />
         <option value="$PROJECT_DIR$/lib/generators/surveyor/templates/public/javascripts/surveyor/jquery.surveyor.js" />
@@ -146,6 +146,10 @@
         <option value="$PROJECT_DIR$/app/helpers/surveyor_helper.rb" />
         <option value="$PROJECT_DIR$/lib/surveyor/redcap_parser.rb" />
         <option value="$PROJECT_DIR$/app/helpers/results_helper.rb" />
+        <option value="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_dependency_conditions.rb" />
+        <option value="$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_questions.rb" />
+        <option value="$PROJECT_DIR$/lib/surveyor/models/question_methods.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -175,6 +179,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -236,21 +241,48 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surveyor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="surveyor" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surveyor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="surveyor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="RunManager">
@@ -383,21 +415,21 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="107" y="81" width="1218" height="815" extended-state="1" />
+    <frame x="178" y="79" width="1218" height="815" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.67081606" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32918397" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -436,61 +468,31 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/features/support/env.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/results_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="411" selection-end="411" vertical-scroll-proportion="0.0" />
+        <state line="19" column="21" selection-start="540" selection-end="540" vertical-scroll-proportion="0.35962147" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/surveyor_tasks.rake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="763" selection-end="763" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/surveyor_controller.rb">
+    <entry file="file://$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_dependencies.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/results_controller.rb">
+    <entry file="file://$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_dependency_conditions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="333" vertical-scroll-proportion="0.0" />
+        <state line="20" column="0" selection-start="539" selection-end="539" vertical-scroll-proportion="-8.888889" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/redcap_parser.rb">
+    <entry file="file://$PROJECT_DIR$/lib/generators/surveyor/templates/db/migrate/create_questions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="62" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.39205956" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/results/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="27" column="6" selection-start="849" selection-end="849" vertical-scroll-proportion="-12.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/results/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/results_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="94" selection-start="319" selection-end="319" vertical-scroll-proportion="-2.6666667">
+        <state line="16" column="16" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/parser.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="62" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="4" selection-start="2926" selection-end="2926" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/surveyor/models/response_set_methods.rb">
@@ -503,9 +505,18 @@
         <state line="44" column="21" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/models/question_methods.rb">
+    <entry file="file://$PROJECT_DIR$/surveyor.gemspec">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="10" selection-start="2291" selection-end="2291" vertical-scroll-proportion="0.0" />
+        <state line="80" column="54" selection-start="3351" selection-end="3351" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/surveyor/parser.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="52" selection-start="4519" selection-end="4519" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/surveyor/models/answer_methods.rb">
@@ -513,9 +524,44 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/surveyor/models/validation_methods.rb">
+    <entry file="file://$PROJECT_DIR$/lib/surveyor/models/question_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="61" selection-start="1859" selection-end="1859" vertical-scroll-proportion="-12.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="59" selection-start="954" selection-end="954" vertical-scroll-proportion="-3.5555556">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/surveyor_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/surveyor/surveyor_controller_methods.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="89" selection-start="1807" selection-end="2224" vertical-scroll-proportion="-4.888889">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/survey_form_builder.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="4.740741">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/surveyor_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="70" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.9255319">
           <folding />
         </state>
       </provider>

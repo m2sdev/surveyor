@@ -25,6 +25,9 @@ class CreateQuestions < ActiveRecord::Migration
       
       t.string :custom_class
       t.string :custom_renderer
+
+      # Action
+      t.string :intercept
       
       t.timestamps
     end

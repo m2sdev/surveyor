@@ -19,6 +19,7 @@ class CreateDependencyConditions < ActiveRecord::Migration
       t.string :string_value
       t.string :response_other
 
+
       t.timestamps
     end
   end
