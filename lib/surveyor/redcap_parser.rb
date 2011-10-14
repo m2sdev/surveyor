@@ -9,10 +9,7 @@ module Surveyor
 
     # Class methods
     def self.parse(str, filename)
-      puts
       Surveyor::RedcapParser.new.parse(str, filename)
-      puts
-      puts
     end
     
     # Instance methods
@@ -24,9 +21,9 @@ module Surveyor
       begin
         csvlib.parse(str, :headers => :first_row, :return_headers => true, :header_converters => :symbol) do |r|
           if r.header_row? # header row
-            return puts "Missing headers: #{missing_columns(r.headers).inspect}\n\n" unless missing_columns(r.headers).blank?
+            return logger.info( "Missing headers: #{missing_columns(r.headers).inspect}\n\n") unless missing_columns(r.headers).blank?
             context[:survey] = Survey.new(:title => filename)
-            print "survey_#{context[:survey].access_code} "
+            logger.info "survey_#{context[:survey].access_code} "
           else # non-header rows
             SurveySection.build_or_set(context, r)
             Question.build_and_set(context, r)
@@ -41,7 +38,7 @@ module Surveyor
         end
         # print context[:survey].sections.map(&:questions).flatten.map(&:answers).flatten.map{|x| x.errors.each_full{|y| y}.join}.join
       rescue csvlib::MalformedCSVError
-        puts = "Oops. Not a valid CSV file."
+        logger.info "Oops. Not a valid CSV file."
       # ensure
       end
       return context[:survey]
@@ -69,7 +66,7 @@ class SurveySection < ActiveRecord::Base
         context[:current_survey_section] = match
       else
         context[:survey_section] = context[:survey].sections.build({:title => r[:form_name].to_s.humanize, :reference_identifier => r[:form_name]})
-        print "survey_section_#{context[:survey_section].reference_identifier} "
+        logger.info "survey_section_#{context[:survey_section].reference_identifier} "
       end
     end
   end
@@ -80,7 +77,7 @@ class Question < ActiveRecord::Base
   def self.build_and_set(context, r)
     if !r[:section_header].blank?
       context[:survey_section].questions.build({:display_type => "label", :text => r[:section_header]})
-      print "label_ "
+      logger_info "label_ "
     end
     context[:question] = context[:survey_section].questions.build({
       :reference_identifier => r[:variable__field_name],
@@ -94,7 +91,7 @@ class Question < ActiveRecord::Base
       context[:lookup] ||= []
       context[:lookup] << [context[:question].reference_identifier, nil, context[:question]]
     end    
-    print "question_#{context[:question].reference_identifier} "
+    logger.info "question_#{context[:question].reference_identifier} "
   end
   def self.pick_from_field_type(ft)
     {"checkbox" => :any, "radio" => :one}[ft] || :none
@@ -113,7 +110,7 @@ class Dependency < ActiveRecord::Base
       hash[:components].each do |component|
         context[:dependency].dependency_conditions.build(decompose_component(component).merge(:lookup_reference => context[:lookup], :rule_key => letters.shift))
       end
-      print "dependency(#{hash[:rule]}) "
+      logger.info "dependency(#{hash[:rule]}) "
     end
   end
   def self.decompose_component(str)
@@ -127,7 +124,7 @@ class Dependency < ActiveRecord::Base
     elsif match = str.match(/^\[(\w+)\] ?([!=><]+) ?(-?\d+)$/)
       {:question_reference => match[1], :operator => match[2].gsub(/^=$/, "==").gsub(/^<>$/, "!="), :integer_value => match[3]}
     else
-      puts "\n!!! skipping dependency_condition #{str}"
+      logger.info "\n!!! skipping dependency_condition #{str}"
     end    
   end
   def self.decompose_rule(str)
@@ -163,17 +160,17 @@ class DependencyCondition < ActiveRecord::Base
   before_save :resolve_references
   def resolve_references
     return unless lookup_reference
-    print "resolve(#{question_reference},#{answer_reference})"
+    logger.info "resolve(#{question_reference},#{answer_reference})"
     if answer_reference.blank? and (row = lookup_reference.find{|r| r[0] == question_reference and r[1] == nil}) and row[2].answers.size == 1
-      print "...found "
+      logger.info "...found "
       self.question = row[2]
       self.answer = self.question.answers.first
     elsif row = lookup_reference.find{|r| r[0] == question_reference and r[1] == answer_reference}    
-      print "...found "
+      logger.info "...found "
       self.answer = row[2]
       self.question = self.answer.question
     else
-      puts "\n!!! failed lookup for dependency_condition q: #{question_reference} a: #{question_reference}"
+      logger.info "\n!!! failed lookup for dependency_condition q: #{question_reference} a: #{question_reference}"
     end
   end
 end
@@ -185,20 +182,20 @@ class Answer < ActiveRecord::Base
     when "notes"
       context[:answer] = context[:question].answers.build(:response_class => "text", :text => "Notes")
     when "file"
-      puts "\n!!! skipping answer: file"
+      logger.info "\n!!! skipping answer: file"
     end
     (r[:choices_or_calculations] || r[:choices_calculations_or_slider_labels]).to_s.split("|").each do |pair|
       aref, atext = pair.split(",").map(&:strip)
       if aref.blank? or atext.blank? or (aref.to_i.to_s != aref)
-        puts "\n!!! skipping answer #{pair}"
+        logger.info "\n!!! skipping answer #{pair}"
       else
         context[:answer] = context[:question].answers.build(:reference_identifier => aref, :text => atext)
         unless context[:question].reference_identifier.blank? or aref.blank? or !context[:answer].valid?
           context[:lookup] ||= []
           context[:lookup] << [context[:question].reference_identifier, aref, context[:answer]]
         end
-        puts "#{context[:answer].errors.full_messages}, #{context[:answer].inspect}" unless context[:answer].valid?
-        print "answer_#{context[:answer].reference_identifier} "
+        logger.info "#{context[:answer].errors.full_messages}, #{context[:answer].inspect}" unless context[:answer].valid?
+        logger.info "answer_#{context[:answer].reference_identifier} "
       end
     end
   end
