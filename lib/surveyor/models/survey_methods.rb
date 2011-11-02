@@ -50,7 +50,9 @@ module Surveyor
           adjusted_value = "#{value} #{i.to_s}"
         end
         self.access_code = Survey.to_normalized_string(adjusted_value)
-        super(adjusted_value)
+        # JSL CHANGED, dont change tile although we bump up the access_code
+        #super(adjusted_value)
+        write_attribute :title, value
         # self.access_code = Survey.to_normalized_string(value)
         # super
       end
