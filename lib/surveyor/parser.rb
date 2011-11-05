@@ -16,7 +16,15 @@ module Surveyor
       self.context = {}
     end
     def parse(str)
-      instance_eval(str)
+      begin
+        instance_eval(str)
+      rescue
+        puts "****** exception error parsing survey"
+        #debugger
+        # force transaction to complete [JL]
+        # see http://apidock.com/rails/ActiveRecord/Transactions/ClassMethods: Exception handling and rolling back
+        raise ActiveRecord::Rollback
+      end
       return context[:survey]
     end
     # This method_missing does all the heavy lifting for the DSL
@@ -164,8 +172,8 @@ class Question < ActiveRecord::Base
     unless correct.blank? or reference_identifier.blank? or context_reference.blank?
       # Looking up references for quiz answers
       context_reference[:answer_references][reference_identifier] ||= {}
-      #print 
-      logger.info (self.correct_answer = context_reference[:answer_references][reference_identifier][correct]) ? "found correct answer:#{correct} " : "lost! correct answer:#{correct} "
+      # puts 
+      # puts (self.correct_answer = context_reference[:answer_references][reference_identifier][correct]) ? "found correct answer:#{correct} " : "lost! correct answer:#{correct} "
     end
   end
 end
@@ -216,9 +224,9 @@ class DependencyCondition < ActiveRecord::Base
   def resolve_references
     if context_reference
       # Looking up references to questions and answers for linking the dependency objects
-      logger.info (self.question = context_reference[:question_references][question_reference]) ? "found question:#{question_reference} " : "lost! question:#{question_reference} "
+      # puts (self.question = context_reference[:question_references][question_reference]) ? "found question:#{question_reference} " : "lost! question:#{question_reference} "
       context_reference[:answer_references][question_reference] ||= {}
-      logger.info (self.answer = context_reference[:answer_references][question_reference][answer_reference]) ? "found answer:#{answer_reference} " : "lost! answer:#{answer_reference} "
+      # puts (self.answer = context_reference[:answer_references][question_reference][answer_reference]) ? "found answer:#{answer_reference} " : "lost! answer:#{answer_reference} "
     end
   end
 end
